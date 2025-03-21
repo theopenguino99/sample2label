@@ -31,9 +31,9 @@ def sample_equal_sentiment(df, sample_size, sentiment_column = "sentiment_score"
     stratified_sample = stratified_sample.sample(frac=1, random_state=42).reset_index(drop=True)
 
     # Create a new DataFrame with the required columns according to the format defined by prof Miguel
-    new_df = stratified_sample.DataFrame({
+    new_df = pd.DataFrame({
         '': range(1, sample_size+1),  # First column: indices starting from 1
-        'sentence': random_sample['post_text'].reset_index(drop=True),  # Second column: post_text
+        'sentence': stratified_sample['post_text'].reset_index(drop=True),  # Second column: post_text
         'label': np.nan  # Third column: empty entries
     })
 
