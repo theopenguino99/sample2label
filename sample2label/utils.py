@@ -6,11 +6,9 @@ def sample_equal_sentiment(df, sample_size, sentiment_column = "sentiment_score"
         raise ValueError("The dataset only has 21 rows with negative sentiment_score, so sample less than 63 please!")
     if sample_size % 3 != 0:
         raise ValueError("sample_size must be a multiple of 3!")
-    
-    
-    # Randomly select 30 rows
-    random_sample = df.sample(n=sample_size, random_state=42)  # random_state ensures reproducibility
-
+    if not isinstance(df, pd.DataFrame):
+        raise TypeError("The input 'df' must be a pandas DataFrame.")
+        
     # Divide the DataFrame into three groups based on sentiment score
     positive_df = df[df[sentiment_column] > 0]
     zero_df = df[df[sentiment_column] == 0]
