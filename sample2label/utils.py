@@ -2,10 +2,11 @@ import pandas as pd
 import numpy as np
 def sample_equal_sentiment(df, sample_size, sentiment_column = "sentiment_score"):
 
-    if sample_size % 3 != 0:
-        raise ValueError("sample_size must be a multiple of 3!")
     if sample_size > 63:
         raise ValueError("The dataset only has 21 rows with negative sentiment_score, so sample less than 63 please!")
+    if sample_size % 3 != 0:
+        raise ValueError("sample_size must be a multiple of 3!")
+    
     
     # Randomly select 30 rows
     random_sample = df.sample(n=sample_size, random_state=42)  # random_state ensures reproducibility
