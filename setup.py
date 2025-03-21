@@ -14,11 +14,11 @@ required = [
 ]
 
 setup(
-    name="tp",
+    name="s2l",
     version="0.0.1",
-    description="Text tools",
+    description="Sampling tools",
     long_description=long_description,
-    author="Miguel Escobar Varela",
+    author="Er Qi Yang",
     install_requires=required,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
