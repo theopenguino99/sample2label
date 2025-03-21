@@ -27,14 +27,15 @@ def sample_equal_sentiment(df, sample_size, sentiment_column = "sentiment_score"
 
     # Shuffle the combined sample to mix the order
     stratified_sample = stratified_sample.sample(frac=1, random_state=42).reset_index(drop=True)
-    print(stratified_sample)
+    print('Just before the error')
 
-    # Create a new DataFrame with the required columns according to the format defined by prof Miguel
-    new_df = pd.DataFrame({
-        '': range(1, sample_size+1),  # First column: indices starting from 1
-        'sentence': stratified_sample['post_text'].reset_index(drop=True),  # Second column: post_text
-        'label': np.nan  # Third column: empty entries
-    })
+    # # Create a new DataFrame with the required columns according to the format defined by prof Miguel
+    # new_df = pd.DataFrame({
+    #     '': range(1, sample_size+1),  # First column: indices starting from 1
+    #     'sentence': stratified_sample['post_text'].reset_index(drop=True),  # Second column: post_text
+    #     'label': np.nan  # Third column: empty entries
+    # })
 
     # Save to Excel
-    new_df.to_excel('output.xlsx', index=False, engine='openpyxl')
+    # new_df.to_excel('output.xlsx', index=False, engine='openpyxl')
+    stratified_sample.to_excel('output.xlsx', index=False, engine='openpyxl')
