@@ -27,7 +27,7 @@ def sample_equal_sentiment(df, sample_size, sentiment_column = "sentiment_score"
 
     # Shuffle the combined sample to mix the order
     stratified_sample = stratified_sample.sample(frac=1, random_state=42).reset_index(drop=True)
-    print(stratified_sample)
+    print('Just before the error')
 
     # Create a new DataFrame with the required columns according to the format defined by prof Miguel
     new_df = pd.DataFrame({
